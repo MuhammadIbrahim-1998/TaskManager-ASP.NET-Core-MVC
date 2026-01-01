@@ -39,14 +39,66 @@ The project demonstrates **authentication**, **authorization**, and **clean arch
 
 ## 🛠 Tech Stack
 
-- **ASP.NET Core MVC**
-- **Entity Framework Core**
-- **Microsoft Identity**
-- **SQL Server (LocalDB)**
-- **Bootstrap**
-- **C#**
+- ASP.NET Core MVC
+- Entity Framework Core
+- Microsoft Identity
+- SQL Server (LocalDB)
+- Bootstrap
+- C#
 
 ---
 
-## 📁 Project Structure
+## 📁 Project Structure (YAML)
 
+TaskManager-ASP.NET-Core-MVC:
+  Microsoft Auth:
+    Controllers:
+      - HomeController.cs
+      - TaskItemsController.cs
+
+    Data:
+      - AppDbContext.cs
+
+    Migrations:
+      - Initial migrations
+      - Identity migrations
+      - CreatedBy column migrations
+
+    Models:
+      - ApplicationUser.cs
+      - TaskItem.cs
+      - ErrorViewModel.cs
+
+    Repositories:
+      - IGenericRepository.cs
+      - GenericRepository.cs
+
+    Views:
+      Home:
+        - Index.cshtml
+        - Privacy.cshtml
+      TaskItems:
+        - Index.cshtml
+        - Create.cshtml
+        - Edit.cshtml
+        - Delete.cshtml
+        - Details.cshtml
+      Shared:
+        - _Layout.cshtml
+        - _LoginPartial.cshtml
+        - _ValidationScriptsPartial.cshtml
+
+    wwwroot:
+      css:
+      js:
+      lib:
+        bootstrap:
+        jquery:
+        jquery-validation:
+
+    - Program.cs
+    - README.md
+    - .gitignore
+    - appsettings.json.example
+    - Microsoft Auth.csproj
+    - Microsoft Auth.sln
