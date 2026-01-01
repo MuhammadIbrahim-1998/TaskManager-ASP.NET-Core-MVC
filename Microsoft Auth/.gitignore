@@ -1,0 +1,26 @@
+# Build folders
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# App settings (secrets)
+appsettings.json
+appsettings.*.json
+!appsettings.json.example
+
+# Database files (LocalDB)
+*.mdf
+*.ldf

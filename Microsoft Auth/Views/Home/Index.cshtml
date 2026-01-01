@@ -1,0 +1,45 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft_Auth.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<h1>Welcome to Dashboard</h1>
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <p>You are logged in as @User.Identity.Name</p>
+
+    @if (User.IsInRole("SuperAdmin"))
+    {
+        <h3>SuperAdmin Controls</h3>
+        <ul>
+            <li><a asp-controller="TaskItems" asp-action="Create">Add New Task</a></li>
+            <li><a asp-controller="TaskItems" asp-action="Index">View All Tasks</a></li>
+            <li>You can add/edit/delete and view all records</li>
+        </ul>
+    }
+    else if (User.IsInRole("Admin"))
+    {
+        <h3>Admin Controls</h3>
+        <ul>
+            <li><a asp-controller="TaskItems" asp-action="Index">View All Tasks</a></li>
+            <li>You can edit records but cannot add or delete</li>
+        </ul>
+    }
+    else if (User.IsInRole("DataEntry"))
+    {
+        <h3>Data Entry Panel</h3>
+        <ul>
+            <li><a asp-controller="TaskItems" asp-action="Create">Add New Task</a></li>
+            <li><a asp-controller="TaskItems" asp-action="Index">View My Entries</a></li>
+            <li>You can add and view only your own records</li>
+        </ul>
+    }
+}
+else
+{
+    <p>You are not logged in.</p>
+    <a asp-area="Identity" asp-page="/Account/Login">Login</a>
+    <span> | </span>
+    <a asp-area="Identity" asp-page="/Account/Register">Register</a>
+}
